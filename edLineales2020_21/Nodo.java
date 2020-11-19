@@ -4,52 +4,52 @@ package edLineales2020_21;
  */
 class Node<T> {
     T element;	//Elemento de la pila
-    Node<T> next;	//Creación del Nodo next
+    Node<T> next;	//CreaciÃ³n del Nodo next
     
     /**
-     * Método que crea un Nodo que apunta a null
+     * MÃ©todo que crea un Nodo que apunta a null
      */
     public Node () {
         next = null;
-    }//Cierre del método
+    }//Cierre del mÃ©todo
     
     /**
-     * Método que crea un Nodo que apunta al elemento Nodo next y guarda el siguiente valor element en el Nodo actual
-     * @param element Elemento de la pila al que se refiere el Nodo
+     * MÃ©todo que crea un Nodo que apunta al elemento Nodo next y guarda el siguiente valor element en el Nodo actual
+     * @param element Elemento al que se refiere el Nodo
      * @param next Nodo actual pasa a ser el Nodo next
      */
     public Node (T element, Node<T> next) {
     	this.element = element;
         this.next = next;
-    }//Cierre del método
+    }//Cierre del mÃ©todo
     
     /**
-     * Método que devuelve el valor element de un Nodo
+     * MÃ©todo que devuelve el valor element de un Nodo
      * @return Elemento del Nodo
      */
 	public T getElement () {
         return element;
-    }//Cierre del método
+    }//Cierre del mÃ©todo
 	
 	/**
-     * Método que devuelve el valor element del Nodo next
+     * MÃ©todo que devuelve el valor element del Nodo next
      * @return Elemento del Nodo next
      */
     public Node<T> getNext () {
         return next;
-    }//Cierre del método
+    }//Cierre del mÃ©todo
     
     /**
-     * Método que inserta un valor element en un Nodo
+     * MÃ©todo que inserta un valor element en un Nodo
      */
     public void setElement (T element) {
         this.element = element;
-    }//Cierre del método
+    }//Cierre del mÃ©todo
     
     /**
-     * Método que inserta un valor element en el Nodo next
+     * MÃ©todo que inserta un valor element en el Nodo next
      */
     public void setNext (Node<T> next) {
         this.next = next;
-    }//Cierre del método
+    }//Cierre del mÃ©todo
 }//Cierre de la clase
