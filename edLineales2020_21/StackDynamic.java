@@ -21,6 +21,7 @@ public abstract class StackDynamic <T> implements Stack <T>{
      * Método que devuelve el valor top de la pila y lo elimina 
      * En caso de que la pila está vacía, muestra un error
      * @param element Elemento top de la pila
+     * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
     public T pop() throws EmptyStackException{
@@ -49,6 +50,7 @@ public abstract class StackDynamic <T> implements Stack <T>{
     /**
      * Método que devuelve el valor top de la pila
      * En caso de que la pila está vacía, muestra un error
+     * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
    public T top() throws EmptyStackException{
