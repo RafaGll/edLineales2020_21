@@ -10,14 +10,14 @@ public abstract class StackStatic<T> implements Stack<T> {
     private T S[];	// creación de pila estática
 
     /**
-     * Método que crea una pila estática con un tamaño estandarizado de 10
+     * Constructor de pilas estáticas con un tamaño estandarizado de 10
      * @param N La variable N almacena el tamaño de la pila (Se iniciaiza a 0)
      * @param S Pila estática
      */
     public StackStatic () {
         N = 0;
         S = (T[]) new Object[10];
-    }//Cierre del método
+    }//Cierre del constructor
 
     /**
      * Método que introduce un valor en la pila
