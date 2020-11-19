@@ -3,7 +3,7 @@ package edLineales2020_21;
 import java.util.*;
 
 /**
- * Esta clase crea y modifica una cola estática
+ * Esta clase crea y modifica colas estáticas
  */
 public abstract class QueueStatic <T> implements Queue <T>{
     private int rear, front, N; //Posición del valor rear y front en la cola, tamaño de la cola
