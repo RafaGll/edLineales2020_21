@@ -20,7 +20,7 @@ public abstract class QueueDynamic <T> implements Queue <T> {
     }//Cierre del constructor
 
     /**
-     * Método que introduce un valor en la cola
+     * Método que introduce un elemento en la cola
      * @param aux Nodo auxiliar que crearemos con el elemento deseado
      */
     public void enqueue(T element) {
@@ -36,7 +36,7 @@ public abstract class QueueDynamic <T> implements Queue <T> {
     }//Cierre del método
 
     /**
-     * Método que devuelve el valor front de la cola y lo elimina
+     * Método que devuelve el elemento front de la cola y lo elimina
      * En caso de que la cola está vacía, muestra un error y devuelve un elemento vacío
      * @param element Elemento top de la pila
      * @return Elemento top de la pila
@@ -57,7 +57,7 @@ public abstract class QueueDynamic <T> implements Queue <T> {
     }//Cierre del método
 
     /**
-     * Método que devuelve el valor front de la cola sin eliminarlo
+     * Método que devuelve el elemento front de la cola sin eliminarlo
      * En caso de que la cola está vacía, muestra un error y devuelve el elemento vacío
      * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
      * @return Elemento top de la pila
