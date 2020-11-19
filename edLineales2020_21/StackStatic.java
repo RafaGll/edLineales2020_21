@@ -11,8 +11,8 @@ public abstract class StackStatic<T> implements Stack<T> {
 
     /**
      * Método que crea una pila estática con un tamaño estandarizado de 10
-     * @param N Tamaño de la pila
-     * @param S Pila
+     * @param N La variable N almacena el tamaño de la pila (Se iniciaiza a 0)
+     * @param S Pila estática
      */
     public StackStatic () {
         N = 0;
@@ -21,7 +21,7 @@ public abstract class StackStatic<T> implements Stack<T> {
 
     /**
      * Método que introduce un valor en la pila
-     * En caso de que la pila está llena, muestra un error y la redimensiona
+     * En caso de que la pila está llena la redimensiona e introduce el valor deseado
      */
     public void push(T element) throws FullStackException{
         try{
@@ -35,9 +35,9 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     * Método que elimina y devuelve el valor top de la pila
-     * En caso de que la pila está vacía, muestra un error
-     * @param element Elemento top de la pila
+     * Método que devuelve el valor top de la pila y lo elimina
+     * En caso de que la pila está vacía, muestra un error y devuelve element vacío
+     * @param element Elemento top de la pila a devolver
      * @return Elemento top de la pila
      */
     public T pop () throws EmptyStackException {
@@ -52,8 +52,9 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     * Método que devuelve el valor top de la pila
-     * En caso de que la pila esté vacía, muestra un error
+     * Método que devuelve el valor top de la pila sin eliminarlo de la misma
+     * En caso de que la pila esté vacía, muestra un error y devuelve element vacío
+     * @param element Elemento top de la pila a devolver
      * @return Elemento top de la pila
      */
     public T top () throws EmptyStackException {
@@ -76,8 +77,11 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     * Método que comprueba si una pila está vacía
-     * @return Toma el valor booleano False si la pila contiene algún valor y True si está vacía
+     * Método que comprueba si una pila está vacía y devuelve el valor booleano correspondiente
+     * @return <ul>
+     *          <li>true: La pila está vacia</li>
+     *          <li>false: La pila contiene algún valor</li>
+     *          </ul>
      */
     public boolean isEmpty () {
         boolean isEmpty = (N-1) < 0;
@@ -85,13 +89,16 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     *
+     * Método que imprime todos los valores de la pila o indica que está vacía
+     * @param values Parametro en el que se almacenarán los valores 
+     * @param aux Valor auxiliar para sacar uno a uno cada valor de la pila
+     * @return Valores de la pila
      */
     public String toString() {
         String values = "";
         int aux = 0;
         if(isEmpty()) {
-            return "La cola está vacía";
+            return "La pila está vacía";
         }else {
             while(aux <= N) {
                 values+=S[aux++];
