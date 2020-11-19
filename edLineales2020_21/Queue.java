@@ -1,7 +1,7 @@
 package edLineales2020_21;
 
 /**
- * Interfaz para la creaci�n de colas est�ticas y din�micas
+ * Interfaz para la creación de colas estáticas y dinámicas
  */
 public interface Queue <T> {
 	public void enqueue(T element);

@@ -3,17 +3,17 @@ package edLineales2020_21;
 import java.util.Arrays;
 
 /**
- * Esta clase crea y modifica una lista est�tica
+ * Esta clase crea y modifica una lista estática
  *
  * @author
  */
 public abstract class ListStatic <T> implements  List <T>{
-    private int N;	//Tama�o de la lista
-    private T L [];	//Creaci�n de lista est�tica
+    private int N;	//Tamaño de la lista
+    private T L [];	//Creación de lista estática
 
     /**
-     * M�todo que crea una lista est�tica
-     * @param N Tama�o de la lista
+     * Método que crea una lista estática
+     * @param N Tamaño de la lista
      * @param L Lista
      */
     public ListStatic () {
@@ -22,7 +22,7 @@ public abstract class ListStatic <T> implements  List <T>{
     }//Cierre del m�todo
 
     /**
-     * M�todo que a�ade un elemento a la lista
+     * Método que añade un elemento a la lista
      * @param element Elemento a incluir en la lista
      * @throws FullStackException
      */
@@ -35,7 +35,7 @@ public abstract class ListStatic <T> implements  List <T>{
             L[N-1] = element;
             N++;
         }
-    }//Cierre del m�todo
+    }//Cierre del método
 
 	public boolean exists(T element) {
     	boolean match = false;
@@ -48,45 +48,45 @@ public abstract class ListStatic <T> implements  List <T>{
     }
 
     /**
-     * M�todo que devuelve el elemento de la lista de una posici�n dada
-     * @param index Posici�n
-     * @return Elemento almacenado en la posici�n index
+     * Método que devuelve el elemento de la lista de una posición dada
+     * @param index Posición
+     * @return Elemento almacenado en la posición index
      */
     public T get(int index) throws IndexListException{
         T element=null;
         if (isEmpty()) {
-        	System.out.println ("La lista est� vac�a");
+        	System.out.println ("La lista está vacía");
         }else {
         	try {
         		element = L[index];
         	}catch(IndexListException e) {
-        		System.out.println ("Valor de �ndice fuera de rango");
+        		System.out.println ("Valor de índice fuera de rango");
         	}
         }
         return element;
     }//Cierre del m�todo
 
     /**
-     * M�todo que comprueba si una lista est� vac�a
-     * @return Toma el valor booleano False si la pila contiene alg�n valor y True si est� vac�a
+     * Método que comprueba si una lista está vacía
+     * @return Toma el valor booleano False si la pila contiene alg�n valor y True si está vacía
      */
     public boolean isEmpty() {
         boolean isEmpty = (N < 0);
         return isEmpty;
-    }//Cierre del m�todo
+    }//Cierre del método
 
     /**
-     * M�todo que devuelve el tama�o de la lista
-     * @return Tama�o de la lista
+     * Método que devuelve el tamaño de la lista
+     * @return Tamaño de la lista
      */
     public int Size () {
         return N;
     }//Cierre del m�todo
 
     /**
-     * M�todo que introduce un elemento en la posici�n anterior a index
+     * Método que introduce un elemento en la posición anterior a index
      * @param element Elemento a introducir
-     * @param index Posici�n del elemento
+     * @param index Posición del elemento
      */
     public void put(T element, int index) throws IndexListException{
     	try {
@@ -98,7 +98,7 @@ public abstract class ListStatic <T> implements  List <T>{
         }
         catch(IndexListException e){
         	if (index < 0 || index > N) {
-        		System.out.println ("Valor de �ndice fuera de rango");
+        		System.out.println ("Valor de índice fuera de rango");
         	}else {
         		L = Arrays.copyOf(L, (N+1));
 				for(int j = N; j >= index; j--) {
@@ -118,28 +118,28 @@ public abstract class ListStatic <T> implements  List <T>{
      */
     public void remove(int index) throws IndexListException{
     	if(isEmpty()) {
-        	System.out.println ("La lista est� vac�a");
+        	System.out.println ("La lista está vacía");
         }else{
         	try {
         		for (int j = index; j < N-1; j++) {
         			L[j] = L[j+1];
         		}
         	}catch(IndexListException e){
-        		System.out.println ("Valor de �ndice fuera de rango");
+        		System.out.println ("Valor de índice fuera de rango");
         	}
         	N--;
         }
-    }//Cierre del m�todo
+    }//Cierre del método
 
     /**
-     * M�todo que devuelve la posici�n de un elemento dado
+     * Método que devuelve la posición de un elemento dado
      * @param index
-     * @return Posici�n del elemento
+     * @return Posición del elemento
      */
     public int locate (T element){
         int pos = -1;
         if(isEmpty()) {
-        	System.out.println ("La lista est� vac�a");
+        	System.out.println ("La lista está vacía");
         }else{
         	for(int j = 0; (j <= N) && (pos == -1); j++) {
         		if ( L [j] == element)
@@ -147,6 +147,6 @@ public abstract class ListStatic <T> implements  List <T>{
         	}
         }
         return pos;
-    }//Cierre del m�todo
+    }//Cierre del método
 
 }//Cierre de la clase
