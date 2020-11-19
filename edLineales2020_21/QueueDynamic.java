@@ -99,13 +99,13 @@ public abstract class QueueDynamic <T> implements Queue <T> {
      */
     public String toString() {
         String values = "";
-        Node <T> Nodoaux = front;
+        Node <T> aux = front;
         if(isEmpty()) {
             return "La cola está vacía";
         }else {
-            while(Nodoaux!=null) {
-                values+=Nodoaux;
-                Nodoaux = Nodoaux.getNext();
+            while(aux!=null) {
+                values+=aux;
+                aux = aux.getNext();
             }
         }
         return values;
