@@ -12,4 +12,5 @@ public interface List <T> {
     public void put(T element, int n);
     public void remove(int n);
     public int locate(T element);
+    public String toString();
 }
