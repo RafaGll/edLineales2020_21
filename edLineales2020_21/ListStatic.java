@@ -56,6 +56,7 @@ public abstract class ListStatic <T> implements  List <T>{
 
     /**
      * Método que devuelve el elemento de la lista de una posición index dada
+     * Si la lista está vacía nos imprime un mensaje de error
      * @param index Posición dada
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      * @return Elemento almacenado en la posición indicada
@@ -92,7 +93,7 @@ public abstract class ListStatic <T> implements  List <T>{
      */
     public int Size () {
         return N;
-    }//Cierre del m�todo
+    }//Cierre del método
 
     /**
      * Método que introduce un elemento en la posición anterior a index, para ello tanto al elemento en index como a sus posteriores, les suma una posición
@@ -121,8 +122,7 @@ public abstract class ListStatic <T> implements  List <T>{
 				N++;
         	}
 		}
-      }
-    //Cierre del método
+      }//Cierre del método
 
     /**
      * Método que elimina el elemento que se encuentra en la posición dada y resta a todos los elementos posteriores una posición.
