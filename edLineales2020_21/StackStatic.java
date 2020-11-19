@@ -3,7 +3,7 @@ package edLineales2020_21;
 import java.util.*;
 
 /**
- * Esta clase crea una pila estática
+ * Esta clase crea y modifica pilas estáticas
  */
 public abstract class StackStatic<T> implements Stack<T> {
     private int N;	// tamaño de la pila
