@@ -1,7 +1,7 @@
 package edLineales2020_21;
 
 /**
- * Esta clase crea una cola estática
+ * Esta clase crea y modifica colas dinámicas
  */
 public abstract class QueueDynamic <T> implements Queue <T> {
     private int N;	//Tamaño de la cola
