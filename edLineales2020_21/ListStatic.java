@@ -28,7 +28,7 @@ public abstract class ListStatic <T> implements  List <T>{
 	 public void add (T element) throws FullListException{
     	try {
     		L[N-1] = element;
-    		N++
+    		N++;
     	}catch(FullListException e){
     		L = Arrays.copyOf(L, (N+1));
         	L[N-1] = element;
