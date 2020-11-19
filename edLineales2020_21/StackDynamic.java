@@ -1,7 +1,7 @@
 package edLineales2020_21;
 
 /**
- * Esta clase crea una pila estática
+ * Esta clase crea y modifica pilas dinámicas
  */
 public abstract class StackDynamic <T> implements Stack <T>{
 	private int N;	//Tamaño de la pila
