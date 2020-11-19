@@ -24,7 +24,7 @@ public abstract class QueueStatic <T> implements Queue <T>{
     }//Cierre del método
 
     /**
-     * M�todo que introduce un valor en la cola
+     * Método que introduce un valor en la cola
      * En caso de que la cola está llena, muestra un error
      */
     public void enqueue (Object e) throws FullQueueException {
@@ -40,7 +40,7 @@ public abstract class QueueStatic <T> implements Queue <T>{
     }//Cierre del método
 
     /**
-     * M�todo que saca el valor front de la cola
+     * Método que saca el valor front de la cola
      * En caso de que la cola está vacía, muestra un error
      * @param element Elemento front de la cola
      * @return Elemento front de la cola
@@ -58,7 +58,7 @@ public abstract class QueueStatic <T> implements Queue <T>{
 
 
     /**
-     * M�todo que devuelve el valor front de la cola
+     * Método que devuelve el valor front de la cola
      * En caso de que la cola está vacía, muestra un error
      * @return Elemento front de la cola
      */

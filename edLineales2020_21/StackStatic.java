@@ -20,8 +20,8 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     * M�todo que introduce un valor en la pila
-     * En caso de que la pila est� llena, muestra un error y la redimensiona
+     * Método que introduce un valor en la pila
+     * En caso de que la pila está llena, muestra un error y la redimensiona
      */
     public void push(T element) throws FullStackException{
         try{
@@ -76,7 +76,7 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     * método que comprueba si una pila está vacía
+     * Método que comprueba si una pila está vacía
      * @return Toma el valor booleano False si la pila contiene algún valor y True si está vacía
      */
     public boolean isEmpty () {
