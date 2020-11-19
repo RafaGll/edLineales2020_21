@@ -22,6 +22,8 @@ public abstract class StackStatic<T> implements Stack<T> {
     /**
      * Método que introduce un valor en la pila
      * En caso de que la pila está llena la redimensiona e introduce el valor deseado
+     * @param element Elemento a introducir en la pila
+     * @throws FullStackException se lanza en caso de que la pila esté llena
      */
     public void push(T element) throws FullStackException{
         try{
@@ -38,6 +40,7 @@ public abstract class StackStatic<T> implements Stack<T> {
      * Método que devuelve el valor top de la pila y lo elimina
      * En caso de que la pila está vacía, muestra un error y devuelve element vacío
      * @param element Elemento top de la pila a devolver
+     * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
     public T pop () throws EmptyStackException {
@@ -55,6 +58,7 @@ public abstract class StackStatic<T> implements Stack<T> {
      * Método que devuelve el valor top de la pila sin eliminarlo de la misma
      * En caso de que la pila esté vacía, muestra un error y devuelve element vacío
      * @param element Elemento top de la pila a devolver
+     * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
     public T top () throws EmptyStackException {
