@@ -1,7 +1,7 @@
 package edLineales2020_21;
 
 /**
- * Interfaz para la creaciÛn de listas est·ticas y din·micas
+ * Interfaz para la creaci√≥n de listas est√°ticas y din√°micas con todos sus m√©todos
  */
 public interface List <T> {
     public void add(T element);
