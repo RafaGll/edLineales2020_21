@@ -11,7 +11,7 @@ public abstract class QueueStatic <T> implements Queue <T>{
 
     /**
      * Constructor de colas estáticas con un tamaño estandarizado de 10
-     * @param N La variable N almacena el tamaño de la cola (Se iniciaiza a 0)
+     * @param N La variable N almacena el tamaño de la cola (Se inicializa a 0)
      * @param front La posición front (primer valor/cabeza) se iniciará en 0
      * @param rear La posición rear (último valor/cola/final) se iniciará en 0
      * @param Q Cola estática
