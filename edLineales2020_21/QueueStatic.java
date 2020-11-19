@@ -43,7 +43,7 @@ public abstract class QueueStatic <T> implements Queue <T>{
 
     /**
      * Método que devuelve el elemento front de la cola y lo elimina de la misma
-     * En caso de que la cola está vacía, muestra un error y devuelve el elemento vacío
+     * En caso de que la cola esté vacía, muestra un error y devuelve el elemento vacío
      * @param element Elemento front de la cola
      * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
      * @return Elemento front de la cola
