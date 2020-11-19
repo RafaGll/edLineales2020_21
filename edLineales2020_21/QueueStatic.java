@@ -24,8 +24,8 @@ public abstract class QueueStatic <T> implements Queue <T>{
     }//Cierre del constructor
 
     /**
-     * Método que introduce un valor en la cola
-     * En caso de que la cola esté llena se redimensionará la cola añadiendo el valor
+     * Método que introduce un elemento en la cola
+     * En caso de que la cola esté llena se redimensionará la cola añadiendo el elemento
      * @param element Valor a introducir en la cola
      * @throws FullQueueException se lanza en caso de que la cola esté llena
      */
@@ -42,7 +42,7 @@ public abstract class QueueStatic <T> implements Queue <T>{
     }//Cierre del método
 
     /**
-     * Método que devuelve el valor front de la cola y lo elimina de la misma
+     * Método que devuelve el elemento front de la cola y lo elimina de la misma
      * En caso de que la cola está vacía, muestra un error y devuelve el elemento vacío
      * @param element Elemento front de la cola
      * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
@@ -85,10 +85,10 @@ public abstract class QueueStatic <T> implements Queue <T>{
     }//Cierre del método
 
     /**
-     * Método que comprueba si una cola está vacía
+     * Método que comprueba si una cola está vacía y nos devuelve el valor boolean correspondiente
      * @return <ul>
      *          <li>true: La cola está vacia</li>
-     *          <li>false: La cola contiene algún valor</li>
+     *          <li>false: La cola contiene algún elemento</li>
      *          </ul>
      */
     public boolean isEmpty() {
@@ -96,10 +96,10 @@ public abstract class QueueStatic <T> implements Queue <T>{
     }//Cierre del método
 
     /**
-     * Método que imprime todos los valores de la cola o indica que está vacía
-     * @param values Parametro en el que se almacenarán los valores 
-     * @param aux Valor auxiliar para sacar uno a uno cada valor de la cola
-     * @return Valores de la pila
+     * Método que imprime todos los elementos de la cola o indica que está vacía
+     * @param values Parametro en el que se almacenarán los elementos 
+     * @param aux Valor auxiliar para sacar uno a uno cada elemento de la cola
+     * @return Elementos de la pila
      */
     public String toString() {
         String values = "";
