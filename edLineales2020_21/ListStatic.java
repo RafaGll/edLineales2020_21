@@ -26,15 +26,15 @@ public abstract class ListStatic <T> implements  List <T>{
      * @param element Elemento a incluir en la lista
      * @throws FullStackException
      */
-    public void add (T element) throws FullStackException{
-        if (L.length < N) {
-        	L = Arrays.copyOf(L, (N+1));
+	 public void add (T element) throws FullStackException{
+    	try {
+    		L[N-1] = element;
+    		N++
+    	}catch(FullStackException e){
+    		L = Arrays.copyOf(L, (N+1));
         	L[N-1] = element;
             N++;
-        }else {
-            L[N-1] = element;
-            N++;
-        }
+    	}
     }//Cierre del método
 
 	public boolean exists(T element) {
