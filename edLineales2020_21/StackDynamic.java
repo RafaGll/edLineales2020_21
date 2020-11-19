@@ -10,7 +10,7 @@ public abstract class StackDynamic <T> implements Stack <T>{
     /**
      * Constructor de pilas dinámicas
      * @param N La variable N almacena el tamaño de la pila (Se iniciaiza a 0)
-     * @param top top
+     * @param top Nodo top que contiene el último elemento añadido y apunta al nodo anterior
      */
     public StackDynamic () {
         N = 0;
