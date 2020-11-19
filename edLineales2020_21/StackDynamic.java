@@ -18,7 +18,7 @@ public abstract class StackDynamic <T> implements Stack <T>{
     }//Cierre del constructor
 
     /**
-     * Método que devuelve el valor top de la pila y lo elimina 
+     * Método que devuelve el elemento top de la pila y lo elimina 
      * En caso de que la pila está vacía, muestra un error
      * @param element Elemento top de la pila
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
@@ -38,7 +38,7 @@ public abstract class StackDynamic <T> implements Stack <T>{
 
 
     /**
-     * Método que introduce un valor en la pila
+     * Método que introduce un elemento en la pila
      * @param aux Nodo auxiliar en el que se introducirá el elemento antes de pasarlo a top
      */
     public void push (T element) {
@@ -48,7 +48,7 @@ public abstract class StackDynamic <T> implements Stack <T>{
     }//Cierre del método
 
     /**
-     * Método que devuelve el valor top de la pila
+     * Método que devuelve el elemento top de la pila
      * En caso de que la pila está vacía, muestra un error
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
@@ -85,20 +85,20 @@ public abstract class StackDynamic <T> implements Stack <T>{
     }//Cierre del método
 	
 	/**
-     * Método que imprime todos los valores de la pila o indica que está vacía
+     * Método que imprime todos los elementos de la pila o indica que está vacía
      * @param values Parametro en el que se almacenarán los valores 
      * @param aux Nodo auxiliar para sacar uno a uno cada valor de la pila
      * @return Valores de la pila
      */
 	public String toString() {
 		String values = "";
-		Node <T> Nodoaux = top;
+		Node <T> aux = top;
 		if(isEmpty()) {
 			return "La pila está vacía";
 		}else {
-			while(Nodoaux!=null) {
-				values+=Nodoaux;
-				Nodoaux = Nodoaux.getNext();
+			while(aux!=null) {
+				values+=aux;
+				aux = aux.getNext();
 			}
 		}
 		return values;
