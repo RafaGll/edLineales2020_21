@@ -20,8 +20,8 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del constructor
 
     /**
-     * Método que introduce un valor en la pila
-     * En caso de que la pila está llena la redimensiona e introduce el valor deseado
+     * Método que introduce un elemento en la pila
+     * En caso de que la pila está llena la redimensiona e introduce el elemento deseado
      * @param element Elemento a introducir en la pila
      * @throws FullStackException se lanza en caso de que la pila esté llena
      */
@@ -37,7 +37,7 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     * Método que devuelve el valor top de la pila y lo elimina
+     * Método que devuelve el elemento top de la pila y lo elimina
      * En caso de que la pila está vacía, muestra un error y devuelve element vacío
      * @param element Elemento top de la pila a devolver
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
@@ -55,7 +55,7 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     * Método que devuelve el valor top de la pila sin eliminarlo de la misma
+     * Método que devuelve el elemento top de la pila sin eliminarlo de la misma
      * En caso de que la pila esté vacía, muestra un error y devuelve element vacío
      * @param element Elemento top de la pila a devolver
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
@@ -93,8 +93,8 @@ public abstract class StackStatic<T> implements Stack<T> {
     }//Cierre del método
 
     /**
-     * Método que imprime todos los valores de la pila o indica que está vacía
-     * @param values Parametro en el que se almacenarán los valores 
+     * Método que imprime todos los elementos de la pila o indica que está vacía
+     * @param values Parametro en el que se almacenarán los elementos 
      * @param aux Valor auxiliar para sacar uno a uno cada valor de la pila
      * @return Valores de la pila
      */
