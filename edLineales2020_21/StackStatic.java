@@ -11,7 +11,7 @@ public abstract class StackStatic<T> implements Stack<T> {
 
     /**
      * Constructor de pilas estáticas con un tamaño estandarizado de 10
-     * @param N La variable N almacena el tamaño de la pila (Se iniciaiza a 0)
+     * @param N La variable N almacena el tamaño de la pila (Se inicializa a 0)
      * @param S Pila estática
      */
     public StackStatic () {
