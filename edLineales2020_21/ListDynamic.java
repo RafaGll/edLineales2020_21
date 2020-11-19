@@ -192,4 +192,25 @@ public abstract class ListDynamic <T> implements List <T>{
     	}
     	return index;
     }// Cierre del método
+	
+	/**
+     * Método que imprime todos los valores de la lista o indica que está vacía
+     * @param values Parametro en el que se almacenarán los valores 
+     * @param aux Nodo auxiliar para sacar uno a uno cada valor de la lista
+     * @return Valores de la pila
+     */
+    public String toString() {
+        String values = "";
+        Node <T> aux = head;
+        if(isEmpty()) {
+            return "La cola está vacía";
+        }else {
+            while(aux!=null) {
+                values+=aux;
+                aux = aux.getNext();
+            }
+        }
+        return values;
+    }//Cierre del método
+
 }// Cierre de la clase
