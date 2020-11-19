@@ -92,5 +92,5 @@ public abstract class StackDynamic <T> implements Stack <T>{
 			}
 		}
 		return values;
-	}//Cierre del m�todo
+	}//Cierre del método
 }//Cierre de la clase

@@ -3,21 +3,21 @@ package edLineales2020_21;
 import java.util.*;
 
 /**
- * Esta clase crea una pila est�tica
+ * Esta clase crea una pila estática
  */
 public abstract class StackStatic<T> implements Stack<T> {
-    private int N;	// tama�o de la pila
-    private T S[];	// creaci�n de pila est�tica
+    private int N;	// tamaño de la pila
+    private T S[];	// creación de pila estática
 
     /**
-     * M�todo que crea una pila est�tica con un tama�o estandarizado de 10
-     * @param N Tama�o de la pila
+     * Método que crea una pila estática con un tamaño estandarizado de 10
+     * @param N Tamaño de la pila
      * @param S Pila
      */
     public StackStatic () {
         N = 0;
         S = (T[]) new Object[10];
-    }//Cierre del m�todo
+    }//Cierre del método
 
     /**
      * M�todo que introduce un valor en la pila
@@ -32,11 +32,11 @@ public abstract class StackStatic<T> implements Stack<T> {
 			S [N] = element;
 			N++;
         }
-    }//Cierre del m�todo
+    }//Cierre del método
 
     /**
-     * M�todo que elimina y devuelve el valor top de la pila
-     * En caso de que la pila est� vac�a, muestra un error
+     * Método que elimina y devuelve el valor top de la pila
+     * En caso de que la pila está vacía, muestra un error
      * @param element Elemento top de la pila
      * @return Elemento top de la pila
      */
@@ -46,14 +46,14 @@ public abstract class StackStatic<T> implements Stack<T> {
     		N--;
     		element = S [N];
     	}catch(EmptyStackException e) {
-    		System.out.println ("La pila est� vac�a");
+    		System.out.println ("La pila está vacía");
     	}
 		return element;
-    }//Cierre del m�todo
+    }//Cierre del método
 
     /**
-     * M�todo que devuelve el valor top de la pila
-     * En caso de que la pila est� vac�a, muestra un error
+     * Método que devuelve el valor top de la pila
+     * En caso de que la pila esté vacía, muestra un error
      * @return Elemento top de la pila
      */
     public T top () throws EmptyStackException {
@@ -61,26 +61,42 @@ public abstract class StackStatic<T> implements Stack<T> {
     	try {
     		element = S [N - 1];
     	}catch (EmptyStackException e){
-    		System.out.println ("La pila est� vac�a");
+    		System.out.println ("La pila está vacía");
     	}
         return element;
-    }//Cierre del m�todo
+    }//Cierre del método
 
 
     /**
-     * M�todo que devuelve el tama�o de la pila
-     * @return Tama�o de la pila
+     * Método que devuelve el tamaño de la pila
+     * @return Tamaño de la pila
      */
     public int Size () {
         return N;
-    }//Cierre del m�todo
+    }//Cierre del método
 
     /**
-     * M�todo que comprueba si una pila est� vac�a
-     * @return Toma el valor booleano False si la pila contiene alg�n valor y True si est� vac�a
+     * método que comprueba si una pila está vacía
+     * @return Toma el valor booleano False si la pila contiene algún valor y True si está vacía
      */
     public boolean isEmpty () {
         boolean isEmpty = (N-1) < 0;
         return isEmpty;
-    }//Cierre del m�todo
+    }//Cierre del método
+
+    /**
+     *
+     */
+    public String toString() {
+        String values = "";
+        int aux = 0;
+        if(isEmpty()) {
+            return "La cola está vacía";
+        }else {
+            while(aux <= N) {
+                values+=S[aux++];
+            }
+        }
+        return values;
+    }//Cierre del método
 }//Cierre de la clase
