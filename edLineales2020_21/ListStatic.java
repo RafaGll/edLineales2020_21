@@ -1,5 +1,6 @@
 package edLineales2020_21;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -11,16 +12,16 @@ import java.util.Arrays;
  * @since 13/11/2020
  * @version 1.0
  */
-public abstract class ListStatic <T> implements  List <T>{
+public class ListStatic <T> implements  List <T>{
     private int N; //Tamaño de la lista
     private T L [];	//Creación de lista estática
 
    /**
      * Constructor de listas estáticas con un tamaño estandarizado de 10
      */
-    public ListStatic () {
+    public ListStatic (Class<T[]> c) {
         N = 1; // Variable encargada de almacenar el tamaño de la cola (Se inicializa a 1)
-        L = (T[]) new Object[10]; 
+        L = c.cast(Array.newInstance (c.getComponentType(), 1)); 
     }//Cierre del constructor
 
     /**
@@ -95,7 +96,7 @@ public abstract class ListStatic <T> implements  List <T>{
      * Método que devuelve el tamaño de la lista
      * @return Tamaño de la lista
      */
-    public int Size () {
+    public int size () {
         return N;
     }//Cierre del método
 

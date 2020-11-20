@@ -35,9 +35,10 @@ public class QueueStatic <T> implements Queue <T>{
     public void enqueue (Object e) throws FullQueueException {
         T element = (T) e;
         try{
-        	Q [rear++] = element;
+        	Q [rear+1] = element;
+        	rear++;
         	N++;
-        } catch (FullQueueException j) {
+        } catch (java.lang.ArrayIndexOutOfBoundsException j) {
         	Q = Arrays.copyOf(Q, (N+1)); // Redimensión de la cola
 			Q [rear++] = element;
 			N++;
@@ -52,11 +53,11 @@ public class QueueStatic <T> implements Queue <T>{
      */
     public T dequeue () throws EmptyQueueException {
     	T element = null;
-    	try {
-    	element = Q [front++];
-        	N--;
-    	} catch (EmptyQueueException e) {
+    	 if (isEmpty())
     		System.out.println ("La cola está vacía");
+    	else {
+    		element = Q [front++];
+        	N--;
     	}
         return element;
     }//Cierre del método
@@ -70,11 +71,10 @@ public class QueueStatic <T> implements Queue <T>{
      */
     public T front () throws EmptyQueueException {
     	T element = null;
-    	try {
-    		element = Q [front];
-    	} catch (EmptyQueueException e) {
+    	 if (isEmpty()) 
     		System.out.println ("La cola está vacía");
-    	}
+    	else 
+    		element = Q [front];
         return element;
     }//Cierre del método
 
@@ -107,7 +107,7 @@ public class QueueStatic <T> implements Queue <T>{
         if(isEmpty()) {
             return "La cola está vacía";
         }else {
-            while(aux <= rear) {
+            while(aux <= rear-1) {
                 values+=Q[aux++];
             }
         }

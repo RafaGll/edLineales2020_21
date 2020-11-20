@@ -32,12 +32,14 @@ public class StackStatic<T> implements Stack<T> {
      * @throws FullStackException se lanza en caso de que la pila esté llena
      */
     public void push(T element){
-         if (isEmpty()) {
-        	S = Arrays.copyOf(S, (N+1)); // Redimensión del array
-			S [N] = element;
-        }else
-        	S [N] = element; // Se introduce el elemento en la posición correspondiente
-        N++;
+    	try{
+    		S [N] = element; // Se introduce el elemento en la posición correspondiente
+    		N++;
+    	} catch (java.lang.ArrayIndexOutOfBoundsException e) {
+    		S = Arrays.copyOf(S, (N+1)); // Redimensión del array
+    		S [N] = element;
+    		N++;
+        }
     }//Cierre del método
 
     /**
@@ -99,12 +101,12 @@ public class StackStatic<T> implements Stack<T> {
      */
     public String toString() {
         String values = ""; // En este String se almacenarán todos los elementos a imprimir
-        int aux = 0; // Variable auxiliar que nos permite recorrer la pila
+        int aux = N-1; // Variable auxiliar que nos permite recorrer la pila
         if(isEmpty()) {
             return "La pila está vacía";
         }else {
-            while(aux <= N-1) {
-            	values+=S[aux++];
+            while(aux >= 0) {
+            	values+=S[aux--];
             }
         }
         return values;

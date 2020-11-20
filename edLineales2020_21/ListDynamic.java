@@ -50,7 +50,7 @@ public abstract class ListDynamic <T> implements List <T>{
      * Método que devuelve el tamaño de la lista
      * @return Tamaño de la lista
      */
-    public int Size () {
+    public int size () {
         return N;
     }//Cierre del método
     

@@ -9,14 +9,14 @@ package edLineales2020_21;
  * @since 7/11/2020
  * @version 1.0
  */
-public abstract class QueueDynamic <T> implements Queue <T> {
+public class QueueDynamic <T> implements Queue <T> {
     private int N;	// Elementos de la cola
     private Node <T> front, rear;
 
     /**
      * Constructor de colas dinámicas
      */
-    public QueueDynamic() {
+    public QueueDynamic(Class<T[]> c) {
         N = 0; // Variable encargada de guardar el número de elementos almacenados en la cola (Se inicializa a 0)
         front = new Node <T>(); // Nodo que contendrá el primer elemento añadido y apuntará al siguiente nodo
         rear = new Node <T>(); // Nodo que contendrá el último nodo añadido y por tanto no apunta a ningún nodo
@@ -46,7 +46,7 @@ public abstract class QueueDynamic <T> implements Queue <T> {
     public T dequeue() {
     	T element = null;
     	if (isEmpty()) {
-            System.out.println ("La pila está vacía");
+            System.out.println ("La cola está vacía");
     		return element;
     	}else {
     		element = (T) front.getElement();
@@ -66,11 +66,10 @@ public abstract class QueueDynamic <T> implements Queue <T> {
      */
     public T front() throws EmptyQueueException {
         T element = null;
-        try {
- 		   element = (T) front.getElement();
- 	   } catch (EmptyQueueException e) {
+       if (isEmpty()) 
  		   System.out.println ("La cola está vacía");
- 	   }
+       else 
+ 		   element = (T) front.getElement();
         return element;
     }//Cierre del método
 
@@ -78,7 +77,7 @@ public abstract class QueueDynamic <T> implements Queue <T> {
      * Método que devuelve el tamaño de la cola
      * @return Tamaño de la cola
      */
-    public int Size () {
+    public int size () {
         return N;
     }//Cierre del método
 
@@ -100,11 +99,11 @@ public abstract class QueueDynamic <T> implements Queue <T> {
     public String toString() {
         String values = ""; // En este String se almacenarán todos los elementos a imprimir
         Node <T> aux = front; // Creación de un nodo auxiliar que nos permitirán sacar uno a uno cada valor de la cola
-        if(isEmpty()) {
+        if(isEmpty()) 
             return "La cola está vacía";
-        }else {
+        else {
             while(aux!=null) {
-                values+=aux;
+                values+=aux.getElement();
                 aux = aux.getNext();
             }
         }
