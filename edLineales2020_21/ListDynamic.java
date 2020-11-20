@@ -80,7 +80,6 @@ public class ListDynamic <T> implements List <T>{
      * Método que devuelve el elemento de la lista de una posición index dada.
 	 * Si la lista está vacía nos imprime un mensaje de error
      * @param index Posición en la que se encuentra el elemento deseado
-     * @throws IndexListException se lanza si la variable index toma valores imposibles
      * @return Elemento almacenado en la posición indicada
      */   
     public T get(int index) {
@@ -110,7 +109,6 @@ public class ListDynamic <T> implements List <T>{
 	 * Para ello, el nodo que apuntaba a la posición index deberá apuntar ahora al nodo con el elemento introducido, el cual a su vez apuntará al nodo en index
      * @param element Elemento a introducir
      * @param index Posición en la que introducir el elemento
-     * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
     public void put(T element, int index) {
     	 if(index<0 || index>N) 
@@ -137,7 +135,6 @@ public class ListDynamic <T> implements List <T>{
     /**
      * Método que elimina el elemento que se encuentra en la posición dada. El nodo anterior a este apuntará al nodo posterior.
      * @param index posición del elemento a eliminar
-     * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
     public void remove(int index) {
     	if (isEmpty()) {

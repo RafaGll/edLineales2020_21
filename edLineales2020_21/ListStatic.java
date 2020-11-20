@@ -28,7 +28,6 @@ public class ListStatic <T> implements  List <T>{
      * Método que añade un elemento a la lista.
      * En el caso de que la lista esté llena, se redimensionará añadiendo el elemento
      * @param element Elemento a incluir en la lista
-     * @throws FullListException se lanza en caso de que la lista esté llena
      */
 	 public void add (T element){
     	try {
@@ -63,7 +62,6 @@ public class ListStatic <T> implements  List <T>{
      * Método que devuelve el elemento de la lista de una posición index dada.
      * Si la lista está vacía nos imprime un mensaje de error
      * @param index Posición en la que se encuentra el elemento deseado
-     * @throws IndexListException se lanza si la variable index toma valores imposibles
      * @return Elemento almacenado en la posición indicada
      */
     public T get(int index){
@@ -105,7 +103,6 @@ public class ListStatic <T> implements  List <T>{
      * Si la lista está llena, la redimiensiona y mete el valor en su posición correspondiente
      * @param element Elemento a introducir
      * @param index Posición siguiente a la que introduciremos el elemento
-     * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
     public void put(T element, int index){
     	try {
@@ -132,7 +129,6 @@ public class ListStatic <T> implements  List <T>{
     /**
      * Método que elimina el elemento que se encuentra en la posición dada y resta a todos los elementos posteriores una posición.
      * @param index posición del elemento a eliminar
-     * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
     public void remove(int index){
     	if(isEmpty()) {

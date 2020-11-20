@@ -29,7 +29,6 @@ public class StackStatic<T> implements Stack<T> {
      * Método que introduce un elemento en la pila.
      * En el caso de que la pila esté llena la redimensiona e introduce el elemento deseado
      * @param element Elemento a introducir en la pila
-     * @throws FullStackException se lanza en caso de que la pila esté llena
      */
     public void push(T element){
     	try{
@@ -45,7 +44,6 @@ public class StackStatic<T> implements Stack<T> {
     /**
      * Método que devuelve el elemento top de la pila y lo elimina.
      * En el caso de que la pila esté vacía, muestra un error y devuelve element vacío
-     * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
     public T pop () {
@@ -62,7 +60,6 @@ public class StackStatic<T> implements Stack<T> {
     /**
      * Método que devuelve el elemento top de la pila sin eliminarlo de la misma.
      * En el caso de que la pila esté vacía, muestra un error y devuelve element vacío
-     * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
     public T top () {

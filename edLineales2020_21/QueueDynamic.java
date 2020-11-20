@@ -60,7 +60,6 @@ public class QueueDynamic <T> implements Queue <T> {
     /**
      * Método que devuelve el elemento front de la cola sin eliminarlo.
      * En el caso de que la cola esté vacía, muestra un error y devuelve el elemento vacío
-     * @throws EmptyQueueException Excepción que se lanza si la cola está vacía
      * @return Elemento top de la pila
      */
     public T front() {

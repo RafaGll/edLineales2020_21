@@ -23,7 +23,6 @@ public class StackDynamic <T> implements Stack <T>{
     /**
      * Método que devuelve el elemento top de la pila y lo elimina. 
      * En el caso de que la pila esté vacía, muestra un error
-     * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
     public T pop(){
@@ -52,7 +51,6 @@ public class StackDynamic <T> implements Stack <T>{
     /**
      * Método que devuelve el elemento top de la pila.
      * En el caso de que la pila esté vacía, muestra un error
-     * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
    public T top(){

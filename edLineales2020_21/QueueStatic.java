@@ -30,7 +30,6 @@ public class QueueStatic <T> implements Queue <T>{
      * Método que introduce un elemento en la cola.
      * En el caso de que la cola esté llena se redimensionará la cola añadiendo el elemento
      * @param e Valor a introducir en la cola
-     * @throws FullQueueException Se lanza en caso de que la cola esté llena
      */
     public void enqueue (Object e)  {
         T element = (T) e;
@@ -48,7 +47,6 @@ public class QueueStatic <T> implements Queue <T>{
     /**
      * Método que devuelve el elemento front de la cola y lo elimina de la misma.
      * En caso de que la cola esté vacía, muestra un error y devuelve el elemento vacío
-     * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
      * @return Elemento front de la cola
      */
     public T dequeue () {
@@ -66,7 +64,6 @@ public class QueueStatic <T> implements Queue <T>{
     /**
      * Método que devuelve el valor front de la cola.
      * En el caso de que la cola está vacía, muestra un error
-     * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
      * @return Elemento front de la cola
      */
     public T front ()  {
