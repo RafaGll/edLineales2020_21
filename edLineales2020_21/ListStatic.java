@@ -20,7 +20,7 @@ public class ListStatic <T> implements  List <T>{
      * Constructor de listas estáticas con un tamaño estandarizado de 10
      */
     public ListStatic (Class<T[]> c) {
-        N = 1; // Variable encargada de almacenar el tamaño de la cola (Se inicializa a 1)
+        N = 0; // Variable encargada de almacenar el tamaño de la cola (Se inicializa a 1)
         L = c.cast(Array.newInstance (c.getComponentType(), 1)); 
     }//Cierre del constructor
 
@@ -30,13 +30,13 @@ public class ListStatic <T> implements  List <T>{
      * @param element Elemento a incluir en la lista
      * @throws FullListException se lanza en caso de que la lista esté llena
      */
-	 public void add (T element) throws FullListException{
+	 public void add (T element){
     	try {
-    		L[N-1] = element;
+    		L[N] = element;
     		N++;
-    	}catch(FullListException e){
+    	}catch(java.lang.ArrayIndexOutOfBoundsException e){
     		L = Arrays.copyOf(L, (N+1)); // Redimensión de la lista
-        	L[N-1] = element;
+        	L[N] = element;
             N++;
     	}
     }//Cierre del método
@@ -52,7 +52,7 @@ public class ListStatic <T> implements  List <T>{
 	public boolean exists(T element) {
     	boolean match = false; // Variable tomará el valor boolean correspondiente
     	if(!isEmpty()) {
-		for (int i=0; i<=(N-1) && !match; i++){
+		for (int i=0; i<=(N) && !match; i++){
 			match=L[i]==element;
 		}
     	}
@@ -66,16 +66,16 @@ public class ListStatic <T> implements  List <T>{
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      * @return Elemento almacenado en la posición indicada
      */
-    public T get(int index) throws IndexListException{
+    public T get(int index){
         T element=null;
         if (isEmpty()) {
         	System.out.println ("La lista está vacía");
         }else {
-        	try {
-        		element = L[index];
-        	}catch(IndexListException e) {
+        	if(index<0 || index>N) 
         		System.out.println ("Valor de índice fuera de rango");
-        	}
+        	else 
+        		element = L[index];
+        	
         }
         return element;
     }//Cierre del método
@@ -88,7 +88,7 @@ public class ListStatic <T> implements  List <T>{
      *          </ul>
      */
     public boolean isEmpty() {
-        boolean isEmpty = (N < 0);
+        boolean isEmpty = (N == 0);
         return isEmpty;
     }//Cierre del método
 
@@ -107,7 +107,7 @@ public class ListStatic <T> implements  List <T>{
      * @param index Posición siguiente a la que introduciremos el elemento
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
-    public void put(T element, int index) throws IndexListException{
+    public void put(T element, int index){
     	try {
             for(int j = N; j >= index; j--) {
             	L[j] = L[j-1];
@@ -115,7 +115,7 @@ public class ListStatic <T> implements  List <T>{
             L [index] = element;
 			N++;
         }
-        catch(IndexListException e){
+        catch(java.lang.ArrayIndexOutOfBoundsException e) {
         	if (index < 0 || index > N) {
         		System.out.println ("Valor de índice fuera de rango");
         	}else {
@@ -134,17 +134,17 @@ public class ListStatic <T> implements  List <T>{
      * @param index posición del elemento a eliminar
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
-    public void remove(int index) throws IndexListException{
+    public void remove(int index){
     	if(isEmpty()) {
         	System.out.println ("La lista está vacía");
         }else{
-        	try {
+        	
+        	}if (index<0 || index>N){
+        		System.out.println ("Valor de índice fuera de rango");
+        	}else {
         		for (int j = index; j < N-1; j++) {
         			L[j] = L[j+1];
         		}
-        	}catch(IndexListException e){
-        		System.out.println ("Valor de índice fuera de rango");
-        	}
         	N--;
         }
     }//Cierre del método
@@ -159,7 +159,7 @@ public class ListStatic <T> implements  List <T>{
         if(isEmpty()) {
         	System.out.println ("La lista está vacía");
         }else{
-        	for(int j = 0; (j <= N) && (pos == -1); j++) {
+        	for(int j = 0; (j <= N+1) && (pos == -1); j++) {
         		if ( L [j] == element)
         			pos = j;
         	}

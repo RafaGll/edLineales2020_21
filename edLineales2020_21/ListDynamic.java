@@ -9,16 +9,16 @@ package edLineales2020_21;
  * @since 14/11/2020
  * @version 1.0
  */
-public abstract class ListDynamic <T> implements List <T>{
+public class ListDynamic <T> implements List <T>{
     private int N; // Elementos en la lista 
     private Node <T> tail, head;
 	/**
 	* Constructor de listas dinámicas
 	*/
-    public ListDynamic() {
+    public ListDynamic(Class<T[]> c) {
         N = 0;  // Variable encargada de guardar el número de elementos almacenados en la lista (Se inicializa a 0)
-        head = null; //Nodo que contiene el primer elemento y apunta al siguiente (al crearlo no hay elementos por lo que no apunta a nada "=null")
-        tail = null; //Nodo que contiene el último elemento añadido y por tanto no tiene nodo al que apuntar.
+        head = new Node <T>(); //Nodo que contiene el primer elemento y apunta al siguiente (al crearlo no hay elementos por lo que no apunta a nada "=null")
+        tail = new Node <T>(); //Nodo que contiene el último elemento añadido y por tanto no tiene nodo al que apuntar.
     }//Cierre del constructor
 
     /**
@@ -27,11 +27,12 @@ public abstract class ListDynamic <T> implements List <T>{
      */
     public void add(T element) {
         Node <T> aux = new Node<T>(element,null); // Creación de un nodo auxiliar que contendrá al elemento
-        tail.setNext(aux);
+        
+        if (isEmpty())
+        	head=aux;
+        else
+        	tail.setNext(aux);
         tail = aux;
-        if(head == null) {
-            head = aux;
-        }
         N++;
 	}//Cierre del método
 
@@ -88,7 +89,9 @@ public abstract class ListDynamic <T> implements List <T>{
     		System.out.println ("La lista está vacía");
     		
     	else {
-    		try {
+    		if(index<0 || index>N) 
+    			System.out.println ("Valor de índice fuera de rango");
+    		else {
     			Node <T> aux = new Node<T>(); // Nodo auxiliar que recorre la lista hasta el indice deseado
     			aux = head;
     			if (index > 0) {
@@ -97,22 +100,22 @@ public abstract class ListDynamic <T> implements List <T>{
     				}
     			}
     			return aux.getElement();
-    		} catch(IndexListException e) {
-    			System.out.println ("Valor de índice fuera de rango");
-    		}
+    		} 
     	}
     	return null;
      }//Cierre del método
 
     /**
-     * Método que introduce un elemento en la posición anterior a index.
+     * Método que introduce un elemento en la posición index.
 	 * Para ello, el nodo que apuntaba a la posición index deberá apuntar ahora al nodo con el elemento introducido, el cual a su vez apuntará al nodo en index
      * @param element Elemento a introducir
      * @param index Posición en la que introducir el elemento
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
     public void put(T element, int index) {
-    	try {
+    	 if(index<0 || index>N) 
+			System.out.println ("Valor de índice fuera de rango");
+		  else {
 			if(index == 0) {
 				Node <T> aux2 = new Node<T>(element, head);
 				head = aux2;
@@ -128,13 +131,11 @@ public abstract class ListDynamic <T> implements List <T>{
 				prev.setNext(aux2);
 			}
 			N++;
-		 } catch(IndexListException e) {
-			System.out.println ("Valor de índice fuera de rango");
-		   }
+		 }
       }//Cierre del método
 
     /**
-     * Método que elimina el elemento que se encuentra en la posición dada. El nodo anterior a este apuntará al nodo posterior
+     * Método que elimina el elemento que se encuentra en la posición dada. El nodo anterior a este apuntará al nodo posterior.
      * @param index posición del elemento a eliminar
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
@@ -142,7 +143,9 @@ public abstract class ListDynamic <T> implements List <T>{
     	if (isEmpty()) {
     		System.out.println ("La lista está vacía");
     	}else {
-    		try {
+    		 if(index<0 || index>N) 
+    			System.out.println ("Valor de índice fuera de rango");
+    		 else {
     			if (index == 0) {
     				head = head.getNext();
     				if (head == null) {
@@ -154,17 +157,20 @@ public abstract class ListDynamic <T> implements List <T>{
     				aux = head;
     				for (int j = 0; j < index ; j++) {
     					prev = aux;
-    					aux = aux.getNext();
-    				}
-    				prev.setNext(aux);
-    				if (tail == aux) {
+    					aux = aux.getNext(); 
+    				}	// aux = elemento a eliminar. prev = elemento previo
+    				/**
+    				 * Si el elemento a eliminar corresponde al último de la lista, el elemento previo no apuntará a ningún nodo para así convertirlo 
+    				 * en el tail, si no es el último de la lista, el nodo previo pasará a apuntar al siguiente del eliminado.
+    				 */
+    				if (tail == aux) { 
+    					prev.setNext(null);
     					tail = prev;
-    					aux = null;
     				}
+    				else
+    					prev.setNext(aux.getNext());
     			}
     			N--;
-    		} catch(IndexListException e) {
-    			System.out.println ("Valor de índice fuera de rango");
     		}
     	}
     }//Cierre del método
@@ -204,7 +210,7 @@ public abstract class ListDynamic <T> implements List <T>{
             return "La cola está vacía";
         }else {
             while(aux!=null) {
-                values+=aux;
+                values+=aux.getElement();
                 aux = aux.getNext();
             }
         }

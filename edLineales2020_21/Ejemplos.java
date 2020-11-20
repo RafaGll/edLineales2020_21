@@ -11,7 +11,7 @@ public class Ejemplos {
 		Persona ana = new Persona("Ana Sanz", 14);
 
 
-		StackStatic<Persona> pila = new StackStatic<Persona>(Persona[].class);
+	/*	StackStatic<Persona> pila = new StackStatic<Persona>(Persona[].class);
 		//StackDynamic<Persona> pila = new StackDynamic<Persona>(Persona[].class);
 		pila.push(jose);
 		pila.push(lucia);
@@ -23,7 +23,7 @@ public class Ejemplos {
 		System.out.println(pila.toString());
 		pila.pop();
 		System.out.println(pila.toString());
-		
+
 		QueueStatic<Persona> cola = new QueueStatic<Persona>(Persona[].class);
 		//QueueDynamic<Persona> cola = new QueueDynamic<Persona>(Persona[].class);
 		cola.enqueue(jose);
@@ -32,24 +32,34 @@ public class Ejemplos {
 		cola.enqueue(marta);
 		cola.enqueue(pedro);
 		cola.enqueue(ana);
-		
+
 		System.out.println(cola.front());
 		cola.dequeue();
 		System.out.println(cola.toString());
-		
+*/
 		ListStatic<Persona> lista = new ListStatic<Persona>(Persona[].class);
 		//ListDynamic<Persona> lista = new ListDynamic<Persona>(Persona[].class);
-		cola.enqueue(jose);
-		cola.enqueue(lucia);
-		cola.enqueue(sebas);
-		cola.enqueue(marta);
-		cola.enqueue(pedro);
-		cola.enqueue(ana);
+		lista.add(jose);
+		lista.add(lucia);
+		lista.add(sebas);
+		lista.add(marta);
+		lista.add(pedro);
+		lista.add(ana);
 		
 		
-		
+		System.out.println(lista.get(2));
+		//lista.remove(2); // lista.remove(2) corresponde al tercer elemento
+		System.out.println(lista.toString());
+		int posicion=lista.locate(pedro);
+		System.out.println(posicion);
+		Persona arancha = new Persona("Arancha Leco", 58);
+		lista.put(arancha, posicion+1);
+		System.out.println(lista.toString());
 
-		
+
+
+
+
 	}
 
 }

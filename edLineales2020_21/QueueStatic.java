@@ -32,7 +32,7 @@ public class QueueStatic <T> implements Queue <T>{
      * @param e Valor a introducir en la cola
      * @throws FullQueueException Se lanza en caso de que la cola esté llena
      */
-    public void enqueue (Object e) throws FullQueueException {
+    public void enqueue (Object e)  {
         T element = (T) e;
         try{
         	Q [rear+1] = element;
@@ -51,7 +51,7 @@ public class QueueStatic <T> implements Queue <T>{
      * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
      * @return Elemento front de la cola
      */
-    public T dequeue () throws EmptyQueueException {
+    public T dequeue () {
     	T element = null;
     	 if (isEmpty())
     		System.out.println ("La cola está vacía");
@@ -69,7 +69,7 @@ public class QueueStatic <T> implements Queue <T>{
      * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
      * @return Elemento front de la cola
      */
-    public T front () throws EmptyQueueException {
+    public T front ()  {
     	T element = null;
     	 if (isEmpty()) 
     		System.out.println ("La cola está vacía");

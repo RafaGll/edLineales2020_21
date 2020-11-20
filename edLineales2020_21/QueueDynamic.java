@@ -29,11 +29,10 @@ public class QueueDynamic <T> implements Queue <T> {
     public void enqueue(T element) {
         Node <T> aux = new Node<T> (element, null); // Creación de nodo auxiliar que contendrá el elemento
 
-        if (isEmpty()) {
+        if (isEmpty()) 
         	front = aux; // si la cola estaba vacía->aux=front=rear
-        } else {
+        else 
         	rear.setNext(aux);
-        }
         rear=aux;
         N++;
     }//Cierre del método
@@ -64,7 +63,7 @@ public class QueueDynamic <T> implements Queue <T> {
      * @throws EmptyQueueException Excepción que se lanza si la cola está vacía
      * @return Elemento top de la pila
      */
-    public T front() throws EmptyQueueException {
+    public T front() {
         T element = null;
        if (isEmpty()) 
  		   System.out.println ("La cola está vacía");
