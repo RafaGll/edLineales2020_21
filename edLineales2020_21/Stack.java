@@ -14,6 +14,6 @@ public interface Stack <T> {
     public T top ();
     public void push (T element);
     public boolean isEmpty ();
-    public int Size ();
+    public int size ();
 	public String toString();
 }

@@ -8,7 +8,9 @@ package edLineales2020_21;
  * @since 30/10/2020
  * @version 1.0
  */
-public class FullStackException extends RuntimeException {
+public class FullStackException extends ArrayIndexOutOfBoundsException {
+	private static final long serialVersionUID = 1L;
+
 	public FullStackException (String error){
 		super(error);
 	}

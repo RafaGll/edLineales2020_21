@@ -1,5 +1,6 @@
 package edLineales2020_21;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -11,18 +12,18 @@ import java.util.*;
  * @since 6/11/2020
  * @version 1.0
  */
-public abstract class QueueStatic <T> implements Queue <T>{
+public class QueueStatic <T> implements Queue <T>{
     private int rear, front, N; //Posición del valor rear y front en la cola, elementos de la cola
     private T Q[];
 
     /**
      * Constructor de colas estáticas con un tamaño estandarizado de 10
      */
-    public QueueStatic () {
+    public QueueStatic (Class<T[]> c) {
         N = 0; // Variable encargada de guardar el número de elementos almacenados en la cola (Se inicializa a 0)
         front = 0; // La posición front (primer valor/cabeza) se iniciará en 0
         rear = 0; // La posición rear (último valor/cola/final) se iniciará en 0
-        Q = (T[]) new Object[10]; // Creación de la cola estática
+        Q = c.cast(Array.newInstance (c.getComponentType(), 1)); // Creación de la cola estática
     }//Cierre del constructor
 
     /**
@@ -81,7 +82,7 @@ public abstract class QueueStatic <T> implements Queue <T>{
      * Método que devuelve el tamaño de la cola
      * @return Tamaño de la cola
      */
-    public int Size () {
+    public int size () {
         return N;
     }//Cierre del método
 

@@ -9,6 +9,7 @@ package edLineales2020_21;
  * @version 1.0
  */
 public class EmptyStackException extends RuntimeException {
+
 	public EmptyStackException (String error){
 		super(error);
 	}

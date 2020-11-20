@@ -1,5 +1,6 @@
 package edLineales2020_21;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -11,16 +12,17 @@ import java.util.*;
  * @since 30/10/2020
  * @version 1.0
  */
-public abstract class StackStatic<T> implements Stack<T> {
+public class StackStatic<T> implements Stack<T> {
     private int N;	// Elementos de la pila
-    private T S[];	// creación de pila estática
+    protected T [] S;	// creación de pila estática
 
     /**
      * Constructor de pilas estáticas con un tamaño estandarizado de 10
      */
-    public StackStatic () {
+    public StackStatic (Class<T[]> c) {
         N = 0; // Variable encargada de guardar el número de elementos almacenados en la pila (Se inicializa a 0)
-        S = (T[]) new Object[10]; // Creación de la pila
+        S = c.cast(Array.newInstance (c.getComponentType(), 1)); // Creación de la pila
+    
     }//Cierre del constructor
     
     /**
@@ -29,15 +31,13 @@ public abstract class StackStatic<T> implements Stack<T> {
      * @param element Elemento a introducir en la pila
      * @throws FullStackException se lanza en caso de que la pila esté llena
      */
-    public void push(T element) throws FullStackException{
-        try{
-        	S [N] = element; // Se introduce el elemento en la posición correspondiente
-        	N++;
-        } catch (FullStackException e) {
+    public void push(T element){
+         if (isEmpty()) {
         	S = Arrays.copyOf(S, (N+1)); // Redimensión del array
 			S [N] = element;
-			N++;
-        }
+        }else
+        	S [N] = element; // Se introduce el elemento en la posición correspondiente
+        N++;
     }//Cierre del método
 
     /**
@@ -46,13 +46,13 @@ public abstract class StackStatic<T> implements Stack<T> {
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
-    public T pop () throws EmptyStackException {
+    public T pop () {
 		T element = null;
-    	try {
-    		N--;
-    		element = S [N];
-    	}catch(EmptyStackException e) {
+    	if(isEmpty()) 
     		System.out.println ("La pila está vacía");
+    	else {
+    		element = S [N-1];
+    		N--;  
     	}
 		return element;
     }//Cierre del método
@@ -63,13 +63,12 @@ public abstract class StackStatic<T> implements Stack<T> {
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
-    public T top () throws EmptyStackException {
+    public T top () {
     	T element = null;
-    	try {
-    		element = S [N - 1];
-    	}catch (EmptyStackException e){
+    	if (isEmpty())
     		System.out.println ("La pila está vacía");
-    	}
+    	else 
+    		element = S [N-1];
         return element;
     }//Cierre del método
 
@@ -78,7 +77,7 @@ public abstract class StackStatic<T> implements Stack<T> {
      * Método que devuelve el tamaño de la pila
      * @return Tamaño de la pila
      */
-    public int Size () {
+    public int size () {
         return N;
     }//Cierre del método
 
@@ -90,7 +89,7 @@ public abstract class StackStatic<T> implements Stack<T> {
      *          </ul>
      */
     public boolean isEmpty () {
-        boolean isEmpty = (N-1) < 0;
+        boolean isEmpty = (N==0);
         return isEmpty;
     }//Cierre del método
 
@@ -104,8 +103,8 @@ public abstract class StackStatic<T> implements Stack<T> {
         if(isEmpty()) {
             return "La pila está vacía";
         }else {
-            while(aux <= N) {
-                values+=S[aux++];
+            while(aux <= N-1) {
+            	values+=S[aux++];
             }
         }
         return values;

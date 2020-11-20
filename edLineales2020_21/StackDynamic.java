@@ -9,14 +9,13 @@ package edLineales2020_21;
  * @since 31/10/2020
  * @version 1.0
  */
-public abstract class StackDynamic <T> implements Stack <T>{
+public class StackDynamic <T> implements Stack <T>{
 	private int N;	// Elementos de la pila
     private Node<T> top = null;	// Nodo top que contendrá el ultimo elemento añadido y apuntará al nodo anterior
-
-    /**
+	/**
      * Constructor de pilas dinámicas
      */
-    public StackDynamic () {
+    public StackDynamic (Class<T[]> c) {
         N = 0; // Variable encargada de guardar el número de elementos almacenados en la pila (Se inicializa a 0)
         top = new Node <T>(); // Creación del nodo top
     }//Cierre del constructor
@@ -27,14 +26,14 @@ public abstract class StackDynamic <T> implements Stack <T>{
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
-    public T pop() throws EmptyStackException{
+    public T pop(){
         T element = null;
-        try {
+       if(isEmpty()) 
+    		System.out.println ("La pila está vacía");
+       else {
         	element = (T) top.getElement();
         	top = top.getNext();
         	N--;
-    	}catch(EmptyStackException e) {
-    		System.out.println ("La pila está vacía");
     	}
         return element;
    }//Cierre del método
@@ -56,13 +55,12 @@ public abstract class StackDynamic <T> implements Stack <T>{
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
-   public T top() throws EmptyStackException{
+   public T top(){
 	   T element = null;
-	   try {
-		   element = (T) top.getElement();
-	   } catch (EmptyStackException e) {
+	    if (isEmpty()) 
 		   System.out.println ("La pila está vacía");
-	   }
+	   else 
+		   element = (T) top.getElement();
        return element;
     }//Cierre del método
 
@@ -71,7 +69,7 @@ public abstract class StackDynamic <T> implements Stack <T>{
     * Método que devuelve el tamaño de la pila
     * @return Tamaño de la pila
     */
-   public int Size () {
+   public int size () {
        return N;
    }//Cierre del método
 
@@ -83,7 +81,7 @@ public abstract class StackDynamic <T> implements Stack <T>{
     *          </ul>
     */
     public boolean isEmpty () {
-    	boolean isEmpty = (top == null);
+    	boolean isEmpty = (N==0);
         return isEmpty;
     }//Cierre del método
 	
@@ -97,8 +95,8 @@ public abstract class StackDynamic <T> implements Stack <T>{
 		if(isEmpty()) {
 			return "La pila está vacía";
 		}else {
-			while(aux!=null) {
-				values+=aux;
+			while(aux.getElement()!=null) {
+				values+=aux.getElement();
 				aux = aux.getNext();
 			}
 		}
