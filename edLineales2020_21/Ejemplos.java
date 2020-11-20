@@ -9,8 +9,8 @@ public class Ejemplos {
 		Persona marta = new Persona("Marta Benavides", 35);
 		Persona pedro = new Persona("Pedro Gil", 9);
 		Persona ana = new Persona("Ana Sanz", 14);
-		
-	
+
+
 		StackDynamic<Persona> pila = new StackDynamic<Persona>(Persona[].class);
 		pila.push(jose);
 		pila.push(lucia);
@@ -18,18 +18,18 @@ public class Ejemplos {
 		pila.push(marta);
 		pila.push(pedro);
 		pila.push(ana);
-		
+
 		System.out.println(pila.toString());
 		pila.pop();
 		System.out.println(pila.toString());
-		
+
 		QueueStatic<Persona> cola = new QueueStatic<Persona>(Persona[].class);
-		pila.push(jose);
-		pila.push(lucia);
-		pila.push(sebas);
-		pila.push(marta);
-		pila.push(pedro);
-		pila.push(ana);
+		cola.enqueue(jose);
+		cola.enqueue(lucia);
+		cola.enqueue(sebas);
+		cola.enqueue(marta);
+		cola.enqueue(pedro);
+		cola.enqueue(ana);
 	}
 
 }
