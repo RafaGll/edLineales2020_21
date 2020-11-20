@@ -1,26 +1,29 @@
 package edLineales2020_21;
 
 /**
- * Esta clase crea y modifica pilas dinámicas
+ * Esta clase sirve para crear pilas dinámicas. También nos permite modificarlas
+ * y obtener valores de ellas.
+ *
+ * @author Iván Cantalejo, Rafael González y Daniel Martín. Universidad de Castilla la Mancha.
+ *
+ * @since 31/10/2020
+ * @version 1.0
  */
 public abstract class StackDynamic <T> implements Stack <T>{
-	private int N;	//Tamaño de la pila
-    private Node<T> top = null;	// Creación de top
+	private int N;	// Elementos de la pila
+    private Node<T> top = null;	// Nodo top que contendrá el ultimo elemento añadido y apuntará al nodo anterior
 
     /**
      * Constructor de pilas dinámicas
-     * @param N La variable N almacena el tamaño de la pila (Se inicializa a 0)
-     * @param top Nodo top que contiene el último elemento añadido y apunta al nodo anterior
      */
     public StackDynamic () {
-        N = 0;
-        top = new Node <T>();
+        N = 0; // Variable encargada de guardar el número de elementos almacenados en la pila (Se inicializa a 0)
+        top = new Node <T>(); // Creación del nodo top
     }//Cierre del constructor
 
     /**
-     * Método que devuelve el elemento top de la pila y lo elimina 
-     * En caso de que la pila está vacía, muestra un error
-     * @param element Elemento top de la pila
+     * Método que devuelve el elemento top de la pila y lo elimina. 
+     * En el caso de que la pila esté vacía, muestra un error
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
@@ -38,18 +41,18 @@ public abstract class StackDynamic <T> implements Stack <T>{
 
 
     /**
-     * Método que introduce un elemento en la pila
-     * @param aux Nodo auxiliar en el que se introducirá el elemento antes de pasarlo a top
+     * Método que introduce un nuevo elemento en la pila
+     * @param element Elemento que el método se encargará de introducir
      */
     public void push (T element) {
-        Node<T> aux = new Node <T>(element, top);
-        top=aux;
+        Node<T> aux = new Node <T>(element, top); // Creación de un nodo auxiliar conteniendo el elemento y apuntando al nodo anterior
+        top=aux; 
         N++;
     }//Cierre del método
 
     /**
-     * Método que devuelve el elemento top de la pila
-     * En caso de que la pila está vacía, muestra un error
+     * Método que devuelve el elemento top de la pila.
+     * En el caso de que la pila esté vacía, muestra un error
      * @throws EmptyStackException se lanza en caso de que la pila esté vacía
      * @return Elemento top de la pila
      */
@@ -86,13 +89,11 @@ public abstract class StackDynamic <T> implements Stack <T>{
 	
 	/**
      * Método que imprime todos los elementos de la pila o indica que está vacía
-     * @param values Parametro en el que se almacenarán los valores 
-     * @param aux Nodo auxiliar para sacar uno a uno cada valor de la pila
      * @return Valores de la pila
      */
 	public String toString() {
-		String values = "";
-		Node <T> aux = top;
+		String values = ""; // En este String se almacenarán todos los elementos a imprimir
+		Node <T> aux = top; // Creación de un nodo auxiliar que nos permitirán sacar uno a uno cada valor de la pila
 		if(isEmpty()) {
 			return "La pila está vacía";
 		}else {

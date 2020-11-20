@@ -3,31 +3,33 @@ package edLineales2020_21;
 import java.util.*;
 
 /**
- * Esta clase crea y modifica colas estáticas
+ * Esta clase sirve para crear colas estáticas. También nos permite modificarlas
+ * y obtener valores de ellas.
+ *
+ * @author Iván Cantalejo, Rafael González y Daniel Martín. Universidad de Castilla la Mancha.
+ *
+ * @since 6/11/2020
+ * @version 1.0
  */
 public abstract class QueueStatic <T> implements Queue <T>{
-    private int rear, front, N; //Posición del valor rear y front en la cola, tamaño de la cola
-    private T Q[];	//Creación de cola estática
+    private int rear, front, N; //Posición del valor rear y front en la cola, elementos de la cola
+    private T Q[];
 
     /**
      * Constructor de colas estáticas con un tamaño estandarizado de 10
-     * @param N La variable N almacena el tamaño de la cola (Se inicializa a 0)
-     * @param front La posición front (primer valor/cabeza) se iniciará en 0
-     * @param rear La posición rear (último valor/cola/final) se iniciará en 0
-     * @param Q Cola estática
      */
     public QueueStatic () {
-        N = 0;
-        front = 0;
-        rear = 0;
-        Q = (T[]) new Object[10];
+        N = 0; // Variable encargada de guardar el número de elementos almacenados en la cola (Se inicializa a 0)
+        front = 0; // La posición front (primer valor/cabeza) se iniciará en 0
+        rear = 0; // La posición rear (último valor/cola/final) se iniciará en 0
+        Q = (T[]) new Object[10]; // Creación de la cola estática
     }//Cierre del constructor
 
     /**
-     * Método que introduce un elemento en la cola
-     * En caso de que la cola esté llena se redimensionará la cola añadiendo el elemento
-     * @param element Valor a introducir en la cola
-     * @throws FullQueueException se lanza en caso de que la cola esté llena
+     * Método que introduce un elemento en la cola.
+     * En el caso de que la cola esté llena se redimensionará la cola añadiendo el elemento
+     * @param e Valor a introducir en la cola
+     * @throws FullQueueException Se lanza en caso de que la cola esté llena
      */
     public void enqueue (Object e) throws FullQueueException {
         T element = (T) e;
@@ -35,16 +37,15 @@ public abstract class QueueStatic <T> implements Queue <T>{
         	Q [rear++] = element;
         	N++;
         } catch (FullQueueException j) {
-        	Q = Arrays.copyOf(Q, (N+1));
+        	Q = Arrays.copyOf(Q, (N+1)); // Redimensión de la cola
 			Q [rear++] = element;
 			N++;
         }
     }//Cierre del método
 
     /**
-     * Método que devuelve el elemento front de la cola y lo elimina de la misma
+     * Método que devuelve el elemento front de la cola y lo elimina de la misma.
      * En caso de que la cola esté vacía, muestra un error y devuelve el elemento vacío
-     * @param element Elemento front de la cola
      * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
      * @return Elemento front de la cola
      */
@@ -61,8 +62,8 @@ public abstract class QueueStatic <T> implements Queue <T>{
 
 
     /**
-     * Método que devuelve el valor front de la cola
-     * En caso de que la cola está vacía, muestra un error
+     * Método que devuelve el valor front de la cola.
+     * En el caso de que la cola está vacía, muestra un error
      * @throws EmptyQueueException se lanza en caso de que la cola esté vacía
      * @return Elemento front de la cola
      */
@@ -97,13 +98,11 @@ public abstract class QueueStatic <T> implements Queue <T>{
 
     /**
      * Método que imprime todos los elementos de la cola o indica que está vacía
-     * @param values Parametro en el que se almacenarán los elementos 
-     * @param aux Valor auxiliar para sacar uno a uno cada elemento de la cola
-     * @return Elementos de la pila
+     * @return Elementos de la cola
      */
     public String toString() {
-        String values = "";
-        int aux = front;
+        String values = ""; // En este String se almacenarán todos los elementos a imprimir
+        int aux = front; // Variable auxiliar que nos permite recorrer la cola
         if(isEmpty()) {
             return "La cola está vacía";
         }else {

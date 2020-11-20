@@ -3,24 +3,28 @@ package edLineales2020_21;
 import java.util.Arrays;
 
 /**
- * Esta clase crea y modifica listas estáticas
+ * Esta clase sirve para crear listas estáticas. También nos permite modificarlas
+ * y obtener valores de ellas.
+ *
+ * @author Iván Cantalejo, Rafael González y Daniel Martín. Universidad de Castilla la Mancha.
+ *
+ * @since 13/11/2020
+ * @version 1.0
  */
 public abstract class ListStatic <T> implements  List <T>{
-    private int N;	//Tamaño de la lista
+    private int N; //Tamaño de la lista
     private T L [];	//Creación de lista estática
 
    /**
      * Constructor de listas estáticas con un tamaño estandarizado de 10
-     * @param N La variable N almacena el tamaño de la cola (Se inicializa a 1)
-     * @param L Lista estática
      */
     public ListStatic () {
-        N = 1;
-        L = (T[]) new Object[10];
+        N = 1; // Variable encargada de almacenar el tamaño de la cola (Se inicializa a 1)
+        L = (T[]) new Object[10]; 
     }//Cierre del constructor
 
     /**
-     * Método que añade un elemento a la lista
+     * Método que añade un elemento a la lista.
      * En el caso de que la lista esté llena, se redimensionará añadiendo el elemento
      * @param element Elemento a incluir en la lista
      * @throws FullListException se lanza en caso de que la lista esté llena
@@ -30,7 +34,7 @@ public abstract class ListStatic <T> implements  List <T>{
     		L[N-1] = element;
     		N++;
     	}catch(FullListException e){
-    		L = Arrays.copyOf(L, (N+1));
+    		L = Arrays.copyOf(L, (N+1)); // Redimensión de la lista
         	L[N-1] = element;
             N++;
     	}
@@ -38,14 +42,14 @@ public abstract class ListStatic <T> implements  List <T>{
 	
 	/**
 	* Método que comprueba si un elemento introducido se encuentra dentro de la lista
-	* @param match parametro que tomará el valor booleano correspondiente a devolver
+	* @param element Elemento a buscar en la lista
 	* @return <ul>
         *         <li>true: El elemento introducido se encuentra en la lista</li>
         *         <li>false: El elemento no se encuentra en la lista</li>
         *         </ul>
         */
 	public boolean exists(T element) {
-    	boolean match = false;
+    	boolean match = false; // Variable tomará el valor boolean correspondiente
     	if(!isEmpty()) {
 		for (int i=0; i<=(N-1) && !match; i++){
 			match=L[i]==element;
@@ -55,9 +59,9 @@ public abstract class ListStatic <T> implements  List <T>{
     }
 
     /**
-     * Método que devuelve el elemento de la lista de una posición index dada
+     * Método que devuelve el elemento de la lista de una posición index dada.
      * Si la lista está vacía nos imprime un mensaje de error
-     * @param index Posición dada
+     * @param index Posición en la que se encuentra el elemento deseado
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      * @return Elemento almacenado en la posición indicada
      */
@@ -96,7 +100,7 @@ public abstract class ListStatic <T> implements  List <T>{
     }//Cierre del método
 
     /**
-     * Método que introduce un elemento en la posición anterior a index, para ello tanto al elemento en index como a sus posteriores, les suma una posición
+     * Método que introduce un elemento en la posición anterior a index, para ello tanto al elemento en index como a sus posteriores, les suma una posición.
      * Si la lista está llena, la redimiensiona y mete el valor en su posición correspondiente
      * @param element Elemento a introducir
      * @param index Posición siguiente a la que introduciremos el elemento
@@ -145,13 +149,12 @@ public abstract class ListStatic <T> implements  List <T>{
     }//Cierre del método
 
     /**
-     * Método que devuelve la posición de un elemento dado
+     * Método que devuelve la posición de un elemento dado. En caso de no encontrarlo, devuelve -1
      * @param element elemento a encontrar en la lista
-     * @param pos posición en la que se encuentra el elemento
      * @return Posición del elemento
      */
     public int locate (T element){
-        int pos = -1;
+        int pos = -1; // Posición en la que se encuentra el elemento, su valor será -1 hasta encontrar el elemento
         if(isEmpty()) {
         	System.out.println ("La lista está vacía");
         }else{
@@ -165,13 +168,11 @@ public abstract class ListStatic <T> implements  List <T>{
 	
     /**
      * Método que imprime todos los elementos de la lista o indica que está vacía
-     * @param values Parametro en el que se almacenarán los elementos 
-     * @param aux Valor auxiliar para sacar uno a uno cada elemento de la cola
-     * @return Elementos de la pila
+     * @return Elementos de la lista
      */
     public String toString() {
-        String values = "";
-        int aux = 0;
+        String values = ""; // En este String se almacenarán todos los elementos a imprimir
+        int aux = 0; // Variable auxiliar que nos permite recorrer la lista
         if(isEmpty()) {
             return "La cola está vacía";
         }else {

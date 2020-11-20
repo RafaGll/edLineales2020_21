@@ -1,28 +1,32 @@
 package edLineales2020_21;
+
 /**
- * Esta clase crea y modifica listas dinámicas
+ * Esta clase sirve para crear listas dinámicas. También nos permite modificarlas
+ * y obtener valores de ellas.
+ *
+ * @author Iván Cantalejo, Rafael González y Daniel Martín. Universidad de Castilla la Mancha.
+ *
+ * @since 14/11/2020
+ * @version 1.0
  */
 public abstract class ListDynamic <T> implements List <T>{
-    private int N;
+    private int N; // Elementos en la lista 
     private Node <T> tail, head;
 	/**
 	* Constructor de listas dinámicas
-	* @param N La variable N almacena el tamaño de la lista (Se inicializa a 0)
-	* @param head Nodo que contiene el primer elemento y apunta al siguiente (al crearlo no hay elementos por lo que no apunta a nada "=null")
-	* @param tail Nodo que contiene el último elemento añadido y por tanto no tiene nodo al que apuntar.
 	*/
     public ListDynamic() {
-        N = 0;
-        head = null;
-        tail = null;
+        N = 0;  // Variable encargada de guardar el número de elementos almacenados en la lista (Se inicializa a 0)
+        head = null; //Nodo que contiene el primer elemento y apunta al siguiente (al crearlo no hay elementos por lo que no apunta a nada "=null")
+        tail = null; //Nodo que contiene el último elemento añadido y por tanto no tiene nodo al que apuntar.
     }//Cierre del constructor
 
     /**
      * Método que introduce un elemento en la lista
-     * @param aux Nodo auxiliar que crearemos con el elemento deseado
+     * @param element Elemento que el método se encargará de introducir en la lista
      */
     public void add(T element) {
-        Node <T> aux = new Node<T>(element,null);
+        Node <T> aux = new Node<T>(element,null); // Creación de un nodo auxiliar que contendrá al elemento
         tail.setNext(aux);
         tail = aux;
         if(head == null) {
@@ -51,17 +55,16 @@ public abstract class ListDynamic <T> implements List <T>{
     }//Cierre del método
     
     /**
-	* Método que comprueba si un elemento introducido se encuentra dentro de la lista y devuelve un valor booleano
-	* @param match Parametro que tomará el valor booleano correspondiente a devolver
-	* @param aux Nodo auxiliar en el que almacenamos el elemento y recorre toda la lista comparando con los distintos elementos
+	* Método que comprueba si un elemento introducido se encuentra dentro de la lista y devuelve un valor booleano correspondiente
+	* @param element Elemento a buscar dentro de la lista
 	* @return <ul>
         *         <li>true: El elemento introducido se encuentra en la lista</li>
         *         <li>false: El elemento no se encuentra en la lista</li>
         *         </ul>
         */
     public boolean exists(T element) {
-    	boolean match = false;
-    	Node <T> aux = new Node<T>(element,null);
+    	boolean match = false; // Parametro que tomará el valor booleano correspondiente a devolver
+    	Node <T> aux = new Node<T>(element,null); // Nodo auxiliar en el que almacenamos el elemento y recorre toda la lista comparando con los distintos elementos
     	if(!isEmpty()) {
     		aux = head;
     		while (aux != null && !match) {
@@ -73,10 +76,9 @@ public abstract class ListDynamic <T> implements List <T>{
     }
     
     /**
-     * Método que devuelve el elemento de la lista de una posición index dada
+     * Método que devuelve el elemento de la lista de una posición index dada.
 	 * Si la lista está vacía nos imprime un mensaje de error
-     * @param index Posición dada
-	 * @param aux Nodo auxiliar que recorre la lista hasta el indice deseado
+     * @param index Posición en la que se encuentra el elemento deseado
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      * @return Elemento almacenado en la posición indicada
      */   
@@ -87,7 +89,7 @@ public abstract class ListDynamic <T> implements List <T>{
     		
     	else {
     		try {
-    			Node <T> aux = new Node<T>();
+    			Node <T> aux = new Node<T>(); // Nodo auxiliar que recorre la lista hasta el indice deseado
     			aux = head;
     			if (index > 0) {
     				for (int j = 0; j < index; j++) {
@@ -103,10 +105,10 @@ public abstract class ListDynamic <T> implements List <T>{
      }//Cierre del método
 
     /**
-     * Método que introduce un elemento en la posición anterior a index
+     * Método que introduce un elemento en la posición anterior a index.
 	 * Para ello, el nodo que apuntaba a la posición index deberá apuntar ahora al nodo con el elemento introducido, el cual a su vez apuntará al nodo en index
      * @param element Elemento a introducir
-     * @param index Posición del nodo al que apuntará el nodo con el elemento nuevo
+     * @param index Posición en la que introducir el elemento
      * @throws IndexListException se lanza si la variable index toma valores imposibles
      */
     public void put(T element, int index) {
@@ -168,10 +170,8 @@ public abstract class ListDynamic <T> implements List <T>{
     }//Cierre del método
 
     /**
-     * Método que devuelve la posición de un elemento dado
+     * Método que devuelve la posición de un elemento dado, si no se encuentra el elemento, el valor retornará -1
      * @param elemLoc elemento a encontrar en la lista
-	 * @param elemento Parametro que recorrerá todos los elementos de la lista hasta dar con el almacenado por elemLoc
-     * @param index posición en la que se encuentra el elemento
      * @return Posición del elemento
      */
     public int locate(T elemLoc) {
@@ -195,13 +195,11 @@ public abstract class ListDynamic <T> implements List <T>{
 	
 	/**
      * Método que imprime todos los valores de la lista o indica que está vacía
-     * @param values Parametro en el que se almacenarán los valores 
-     * @param aux Nodo auxiliar para sacar uno a uno cada valor de la lista
      * @return Valores de la pila
      */
     public String toString() {
-        String values = "";
-        Node <T> aux = head;
+        String values = ""; // En este String se almacenarán todos los elementos a imprimir
+        Node <T> aux = head; // Creación de un nodo auxiliar que nos permitirán sacar uno a uno cada valor de la lista
         if(isEmpty()) {
             return "La cola está vacía";
         }else {
